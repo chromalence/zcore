@@ -1,0 +1,60 @@
+.\" zcore.7 - manual page for the zcore syscall library
+.TH ZCORE 7 2026-04-05 "linux" "zcore manual"
+.SH NAME
+zcore \- tiny & modular C library
+.SH SYNOPSIS
+.B #include <zcore/full.h>
+.SH DESCRIPTION
+.B zcore
+is a minimalist,
+.B #nostdlib
+C library thats designed for x86_64 static compiling on linux. 
+its a completely solo project with zero contributors, except for me.
+it utilises things like push & pop for register loading which saves 4 
+bytes. 4 bytes is 4 bytes yk. its optimised for binary size and originally
+made for me to save time writing assembly in my tiny shells. 
+works well with tbt ( tiny binary tool, see man 1 tbt ) for compilation & stripping.
+.SS design  \(dqphilosophy\(dq
+small = proud, proud = happy. simple! 
+.SS features
+.IP \(bu 3
+.B freestanding:
+no dependencies lol
+.IP \(bu 3
+.B tiny:
+DIRECT assembly wrappers (e.g., zexecve, zopen) minimize instruction count
+.IP \(bu 3
+.B modular:
+WHAT YOU SEE, IS WHAT YOU GET!!! everything inside
+.IR /usr/local/include/zcore/ 
+
+.SH FILES
+.TP
+.I /usr/local/include/zcore/full.h 
+unless you desperately need every. single. thing. in zcore. dont use, if you do, very helpful. saves a LOT. of #includes.
+.TP
+.I /usr/local/include/zcore/*.h
+individual syscall and utility headers (open.h, execve.h, etc)
+.SH NOTES
+since
+.B zcore
+does not provide a standard startup routine (crt0), (your little int main()'s)
+your code gotta define ur own 
+.B _start 
+entry point and use 
+.BR zexit (0)
+to make it return ( like your return 0;'s !!')
+
+.SH SEE ALSO
+.BR syscalls (2),
+.BR intro (2),
+.BR elf (5),
+.BR tbt (1)
+
+.SH BUGS
+open a pull request on github! this is going to have a crap ton of bugs 
+because this project is really just me and neovim. 
+.SH AUTHOR
+chromalence, https://github.com/chromalence/
+.SH THANK YOU FOR READING!!  
+.SH HAVE A GREAT DAY!!! :3

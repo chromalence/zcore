@@ -1,0 +1,30 @@
+#!/usr/bin/env bash 
+
+# tiny binary tool (-cc = C)
+
+case "$1" in
+  -s)
+    strip -R .comment -R .note.gnu.property --strip-all "$2" &&
+    sstrip "$2"  
+    ;;
+  -cc)
+    cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
+    -Wl,--build-id=none -Wl,-nmagic  -s "$2" -o "$2.out"
+    ;;
+  -f) 
+    "$0" -cc "$2"
+    "$0" -s "$2.out"
+    ;;
+  -h)
+    echo "tbt: tiny binary tool"
+    echo "-h > shows this, for help"
+    echo "-f > compiles and strips"
+    echo "-cc > compiles"
+    echo "-s > strips"
+    ;;
+  *)
+    echo -e "tb: \x1b[31m<error>\x1b[0m invalid syntax: \x1b[31m$1"
+    ;;
+esac
+
+# thanks 4 reading
