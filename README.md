@@ -16,7 +16,7 @@ that is designed to be used in tiny and modular projects.
 shell ( with cd & args ) at 715 bytes ( wow! )
 hello world in 300~ bytes 
 ## DEPENDENCIES 
-zcore: none. just a c compiler 
+zcore: none. just a c compiler  
 tbt: elf-kickers (strip, sstrip) & a c compiler
 ## WHY SHOULD I TRY ZCORE??
 well, YOU ( yes, you! ) should try zcore because it is TINY..
