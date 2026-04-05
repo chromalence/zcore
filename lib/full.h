@@ -9,7 +9,9 @@
 #include <zcore/strcmp.h> 
 #include <zcore/strsep.h>
 #include <zcore/wait.h> 
-#include <zcore/chdir.h> 
+#include <zcore/chdir.h>
+#include <zcore/open.h>
+#include <zcore/close.h>
 
 /* warning: you are including EVERYTHING inside zcore. this could bring about unnecessary bloat to your project if you dont need these. */
 
