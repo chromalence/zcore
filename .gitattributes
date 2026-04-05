@@ -5,4 +5,4 @@ lib/strsep.h linguist-language=C
 
 doc/zcore.7 linguist-documentation
 
-install.sh linguist-installer-script
+install.sh linguist-installer
