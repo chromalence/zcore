@@ -12,6 +12,8 @@ ________  ________  ________  ________  _______
 ```
 what is zcore? zcore is a tiny & simple syscall wrapper 
 that is designed to be used in tiny and modular projects.
+## WARNING
+overhaul is coming soon, more info disclosed tmrw! ;3
 ## STAT FLEXES ( using tbt )
 shell ( with cd & args ) at 715 bytes ( wow! )
 hello world in 300~ bytes 
