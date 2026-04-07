@@ -1,7 +1,7 @@
-lib/*.h linguist-language=Assembly
+include/*.h linguist-language=Assembly
 
-lib/strcmp.h linguist-language=C
-lib/strsep.h linguist-language=C
+include/strcmp.h linguist-language=C
+include/strsep.h linguist-language=C
 
 doc/zcore.7 linguist-documentation
 
