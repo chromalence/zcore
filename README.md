@@ -10,10 +10,13 @@ ________  ________  ________  ________  _______
    |\________\ \_______\ \_______\ \__\\ _\\ \_______\
     \|_______|\|_______|\|_______|\|__|\|__|\|_______|
 ```
-what is zcore? zcore is a tiny & simple syscall wrapper 
+what is zcore? zcore is a tiny & simple syscall wrapper header library
 that is designed to be used in tiny and modular projects.
 ## WARNING
 overhaul is coming soon, more info disclosed tmrw! ;3
+### THE INFO:
+overhaul is WIP and nearly finished and close to confirmed stable, making everything safer
+using volatile assembly instead of plain assembly, and bugfixes. 
 ## STAT FLEXES ( using tbt )
 shell ( with cd & args ) at 715 bytes ( wow! )
 hello world in 300~ bytes 
