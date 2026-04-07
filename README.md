@@ -10,16 +10,17 @@ ________  ________  ________  ________  _______
    |\________\ \_______\ \_______\ \__\\ _\\ \_______\
     \|_______|\|_______|\|_______|\|__|\|__|\|_______|
 ```
-what is zcore? zcore is a tiny & simple syscall wrapper header library
+what is zcore? zcore is a tiny & simple syscall wrapper 
 that is designed to be used in tiny and modular projects.
-## WARNING
-overhaul is coming soon, more info disclosed tmrw! ;3
-### THE INFO:
-overhaul is WIP and nearly finished and close to confirmed stable, making everything safer
-using volatile assembly instead of plain assembly, and bugfixes. 
+## v1.1: WHATS GONNA CHANGE???
+basically overhauled every single header, dont worry the names are the same your code 
+should keep working its now much safer using PROPER asm volatile stuff in C
+it is still work in progress as ill be adding new syscall wrappers in v1.1
+### HOW DO I UPDATE ( when its done ) ???
+to update, re-git-clone it and run the install script again, see INSTALL ;)
 ## STAT FLEXES ( using tbt )
-shell ( with cd & args ) at 715 bytes ( wow! )
-hello world in 300~ bytes 
+shell ( with cd & args ) at 710~ bytes ( wow! )
+hello world in 340~ bytes 
 ## DEPENDENCIES 
 zcore: none. just a c compiler  
 tbt: elf-kickers (strip, sstrip) & a c compiler
@@ -28,7 +29,7 @@ well, YOU ( yes, you! ) should try zcore because it is TINY..
 and i mean TINY.. if you use tbt ( tiny binary tool ) which helps 
 compiling with the agressive flags and stripping needed to make it 
 EVEN. SMALLER. you can get a hello world in like 300~ bytes which is
-really cool. i got a SHELL. in 715 bytes. thats kinda crazy. no its not atsh 
+really cool. i got a SHELL. in 710~ bytes. thats kinda crazy. no its not atsh 
 because that is completely dependency-less its like 20 bytes smaller because it
 needs to include everything inside there but if you want a STABLE, NO TROUBLESHOOTING
 project that doesnt aim for binary size, maybe skip zcore.
@@ -79,8 +80,12 @@ if they put something new you GOTTA use it even if you are ONLY printing hello w
 ## LICENSE
 GPLv3 see LICENSE file for more info its copyleft so if you take my code 
 and add more stuff to it and keep it closed source you cant do that :P >:D
-## PR's 
-im a solo dev that rarely checks github if you find a game-changing bug just beware
-i wont pull it immediately and if its just 'i changed your push & pop to mov' just NO. it saves 4 bytes PER. ONE. so yeah
+## PR's
+keep in mind im a solo dev that only checks github to push updates & fixes, if you have a PR here are my rules 
+1. keep it simple
+2. make it modular 
+3. make it useful
+4. ( MOST IMPORTANT ) make it tiny 
+if it doesnt abide by these i likely wont like pull it 
 ## BYEBYE
 have a nice day

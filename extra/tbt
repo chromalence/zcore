@@ -8,12 +8,20 @@ case "$1" in
     sstrip "$2"  
     ;;
   -cc)
-    cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
+    if [[ -n "$3" ]]; then
+            cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
+    -Wl,--build-id=none -Wl,-nmagic  -s "$2" -o "$3"
+    else 
+          cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
     -Wl,--build-id=none -Wl,-nmagic  -s "$2" -o "$2.out"
+    fi 
     ;;
   -f) 
     "$0" -cc "$2"
     "$0" -s "$2.out"
+    if [[ -n "$3" ]]; then 
+      mv "$2.out" "$3"
+    fi 
     ;;
   -h)
     echo "tbt: tiny binary tool"

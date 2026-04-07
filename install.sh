@@ -5,11 +5,11 @@ BIN_PATH="/usr/local/bin"
 MAN_PATH="/usr/local/man/man7"
 TIMER=5
 
-# do the dependency check yourself its safer anyway hope you understand
 
 echo "installing zcore.."
 sudo mkdir -p "$LIB_PATH/zcore" &&
-sudo cp -r lib/* "$LIB_PATH/zcore/" && 
+sudo cp -r include/* "$LIB_PATH/zcore/" &&
+sudo cp -r zcore.h "$LIB_PATH/zcore.h" &&
 echo "installing zcore man 7.." &&
 sudo cp doc/zcore.7 "$MAN_PATH/zcore.7" &&
 echo "zcore finished installing into $LIB_PATH/zcore"
