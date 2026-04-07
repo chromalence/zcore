@@ -21,6 +21,7 @@ to update, re-git-clone it and run the install script again, see INSTALL ;)
 ## STAT FLEXES ( using tbt )
 shell ( with cd & args ) at 680 bytes ( wow! )
 hello world in 331 bytes 
+see demos for proof
 ## DEPENDENCIES 
 zcore: none. just a c compiler  
 tbt: elf-kickers (strip, sstrip) & a c compiler
