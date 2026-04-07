@@ -19,8 +19,8 @@ new headers coming soon :3
 ### HOW DO I UPDATE ( when its done ) ???
 to update, re-git-clone it and run the install script again, see INSTALL ;)
 ## STAT FLEXES ( using tbt )
-shell ( with cd & args ) at 710~ bytes ( wow! )
-hello world in 340~ bytes 
+shell ( with cd & args ) at 680 bytes ( wow! )
+hello world in 331 bytes 
 ## DEPENDENCIES 
 zcore: none. just a c compiler  
 tbt: elf-kickers (strip, sstrip) & a c compiler
