@@ -12,11 +12,13 @@ ________  ________  ________  ________  _______
 ```
 what is zcore? zcore is a tiny & simple syscall wrapper 
 that is designed to be used in tiny and modular projects.
+## v1.2: WHAT WILL CHANGE???
+loads new syscalls. pretty much it, tbt update and minor fixes
 ## v1.1: WHAT HAS CHANGED???
 basically overhauled every single header, dont worry the names are the same your code 
 should keep working its now much safer using PROPER asm volatile stuff in C
 new headers coming soon :3
-### HOW DO I UPDATE ( when its done ) ???
+### HOW DO I UPDATE???
 to update, re-git-clone it and run the install script again, see INSTALL ;)
 ## STAT FLEXES ( using tbt )
 shell ( with cd & args ) at 680 bytes ( wow! )
@@ -30,10 +32,9 @@ well, YOU ( yes, you! ) should try zcore because it is TINY..
 and i mean TINY.. if you use tbt ( tiny binary tool ) which helps 
 compiling with the agressive flags and stripping needed to make it 
 EVEN. SMALLER. you can get a hello world in like 300~ bytes which is
-really cool. i got a SHELL. in 710~ bytes. thats kinda crazy. no its not atsh 
-because that is completely dependency-less its like 20 bytes smaller because it
-needs to include everything inside there but if you want a STABLE, NO TROUBLESHOOTING
-project that doesnt aim for binary size, maybe skip zcore.
+really cool. i got a SHELL. in 680~ bytes. thats kinda crazy. but if
+you want a STABLE, NO TROUBLESHOOTING project that doesnt aim for
+binary size, maybe skip zcore.
 ### IF YOU DONT WANT TBT
 compile flags:
 ```bash
