@@ -12,6 +12,17 @@
 #include <zcore/chdir.h>
 #include <zcore/open.h>
 #include <zcore/close.h>
+#include <zcore/ioctl.h>
+#include <zcore/bool.h>
+#include <zcore/fcntl.h>
+#include <zcore/mmap.h>
+#include <zcore/munmap.h>
+#include <zcore/openat.h>
+#include <zcore/pipe.h>
+#include <zcore/strlen.h>
+#include <zcore/brk.h>
+#include <zcore/nanosleep.h>
+#include <zcore/vfork.h>
 
 /* warning: you are including EVERYTHING inside zcore. this could bring about unnecessary bloat to your project if you dont need these. */
 
