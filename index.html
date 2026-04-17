@@ -12,7 +12,28 @@
       font-family: 'Cozette';
       src: url('extra/site/fonts/CozetteVector.ttf') format('truetype');
     }
-
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    animation: scanmove 8s linear infinite;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 255, 159, 0.03),
+      rgba(0, 255, 159, 0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    opacity: 0.4;
+}
+    @keyframes scanmove {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
     body {
       background-color: #0a0a0a;
       color: #00ff9f;
@@ -32,13 +53,28 @@
       text-align: center;
       letter-spacing: 2px;
     }
+    
+  @keyframes typing {
+  from { width: 0; }
+  to { width: 41ch; }
+}
 
-    .subtitle {
-      text-align: center;
-      opacity: 0.7;
-      margin-bottom: 30px;
-    }
+.subtitle {
+  display: block;
+  width: 41ch; 
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid #00ff9f;
+  animation: typing 2s steps(40, end) forwards;
+}
 
+.fade-out {
+  color: rgb(0, 255, 159);
+  border-color: rgb(0, 255, 159);
+  text-shadow: none;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
     .download-btn {
       display: block;
       width: fit-content;
@@ -49,10 +85,51 @@
       text-decoration: none;
     }
 
-    .download-btn:hover {
-      background: #00ff9f;
-      color: #0a0a0a;
+    .xtra-dbtn {
+      display: block;
+      width: fit-content;
+      margin: 25px auto;
+      padding: 12px 20px;
+      border: 4px solid #00ff9f;
+      color: #00ff9f;
+      text-decoration: none;
+      animation: glow 3s infinite;
     }
+
+    .basic-link {
+      color: #44ffaf;
+      text-decoration: underline;
+    }
+
+@keyframes hoverPulse {
+  0% { box-shadow: 0 0 0 rgba(0,255,159,0); }
+  50% { box-shadow: 0 0 12px rgba(0,255,159,0.6); }
+  100% { box-shadow: 0 0 10px rgba(0,255,159,0.4); }
+}
+
+    .download-btn:hover {
+  background: #00ff9f;
+  color: #0a0a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00ff9f66;
+  animation: hoverPulse 0.6s ease;
+  transition: 0.25s ease;
+}
+    
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #00ff9f33; }
+      50% { box-shadow: 0 0 12px #00ff9f66; }
+      100% { box-shadow: 0 0 5px #00ff9f33; }
+    }
+  
+        .xtra-dbtn:hover {
+  animation: hoverPulse 0.6s ease;
+  background: #00ff9f;
+  color: #0a0a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px #00ff9f66;
+  transition: 0.25s ease;
+}
 
     #content {
       margin-top: 40px;
@@ -96,13 +173,13 @@
 
 <body>
   <div class="container">
-    <h1>ZCORE</h1>
+    <h1>zcore</h1>
 
     <div class="subtitle">
       tiny syscall wrapper for modular projects
     </div>
 
-    <a href="zcore.tar.gz" download class="download-btn">
+    <a href="zcore.tar.gz" download class="xtra-dbtn">
       download zcore.tar.gz
     </a>
 
@@ -112,21 +189,77 @@
 
     <div id="content">loading README...</div>
 
+    <a href="https://github.com/chromalence/" class="download-btn">
+      support me!
+    </a>
+
     <div class="footer">
-      v1.2 • linux • tar.gz
+      chromalence | v1.2 • linux • x86_64 | GPLv3, see <a href="https://github.com/chromalence/zcore/blob/main/LICENSE" class="basic-link">
+        LICENSE
+      </a>
     </div>
   </div>
+  
+  <audio id="hover-sound" src="./extra/site/hover.ogg" preload="auto"></audio>
+  <audio id="click-sound" src="./extra/site/select.ogg" preload="auto"></audio>
 
-  <script>
-    fetch("README.md")
-      .then(res => res.text())
-      .then(md => {
-        document.getElementById("content").innerHTML = marked.parse(md);
-      })
-      .catch(() => {
-        document.getElementById("content").innerText =
-          "failed to load README.md (are you running a local server?)";
-      });
-  </script>
+<script>
+fetch("README.md")
+  .then(res => res.text())
+  .then(md => {
+    document.getElementById("content").innerHTML = marked.parse(md);
+  })
+  .catch(() => {
+    document.getElementById("content").innerText =
+      "failed to load README.md (are you running a local server?)";
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const hoverSound = document.getElementById("hover-sound");
+  const clickSound = document.getElementById("click-sound");
+
+  let unlocked = false;
+
+  function unlockAudio() {
+    if (unlocked) return;
+    unlocked = true;
+
+    hoverSound.currentTime = 0;
+    clickSound.currentTime = 0;
+  }
+
+  document.addEventListener("click", unlockAudio, { once: true });
+  document.addEventListener("mousemove", unlockAudio, { once: true });
+  document.addEventListener("keydown", unlockAudio, { once: true });
+
+  function playSound(audio) {
+    if (!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
+
+    audio.play().catch(() => {});
+  }
+
+  const buttons = document.querySelectorAll(".download-btn, .xtra-dbtn");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+      playSound(hoverSound);
+      btn.classList.add("fade-out");
+    });
+
+    btn.addEventListener("click", () => {
+      playSound(clickSound);
+
+      btn.classList.add("fade-out");
+
+
+    });
+  });
+
+});
+</script>
 </body>
 </html>
