@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 
-# tiny binary tool (-cc = C)
+cc="gcc"
 
 case "$1" in
   -s)
@@ -9,10 +9,10 @@ case "$1" in
     ;;
   -cc)
     if [[ -n "$3" ]]; then
-            cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
+            "$cc" -Oz -nostdinc -ffreestanding -nostdlib -fno-builtin -static -fno-asynchronous-unwind-tables -fno-stack-protector \
     -Wl,--build-id=none -Wl,-nmagic  -s "$2" -o "$3"
     else 
-          cc -Os -nostdlib -static -fno-asynchronous-unwind-tables -fno-stack-protector \
+          "$cc" -Oz -nostdlib  -fno-builtin -static -fno-asynchronous-unwind-tables -fno-stack-protector \
     -Wl,--build-id=none -Wl,-nmagic  -s "$2" -o "$2.out"
     fi 
     ;;
@@ -31,8 +31,7 @@ case "$1" in
     echo "-s > strips"
     ;;
   *)
-    echo -e "tb: \x1b[31m<error>\x1b[0m invalid syntax: \x1b[31m$1"
+    shift
+    echo -e "tbt: \x1b[31m<error>\x1b[0m invalid syntax: \x1b[31m$*"
     ;;
 esac
-
-# thanks 4 reading
