@@ -6,3 +6,4 @@ include/strsep.h linguist-language=C
 doc/zcore.7 linguist-documentation
 
 install.sh linguist-vendored
+extra/site/* linguist-vendored
