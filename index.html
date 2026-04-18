@@ -233,13 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mousemove", unlockAudio, { once: true });
   document.addEventListener("keydown", unlockAudio, { once: true });
 
-  function playSound(audio) {
+function playSound(audio) {
   if (!audio) return;
 
-  if (audio.paused) {
-    audio.currentTime = 0;
-    audio.play().catch(() => {});
-  }
+  const clone = audio.cloneNode();
+  clone.play().catch(() => {});
 }
 
   const buttons = document.querySelectorAll(".download-btn, .xtra-dbtn");
