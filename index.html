@@ -234,13 +234,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", unlockAudio, { once: true });
 
   function playSound(audio) {
-    if (!audio) return;
+  if (!audio) return;
 
-    audio.pause();
+  if (audio.paused) {
     audio.currentTime = 0;
-
     audio.play().catch(() => {});
   }
+}
 
   const buttons = document.querySelectorAll(".download-btn, .xtra-dbtn");
 
