@@ -2,79 +2,72 @@
 <html>
 <head>
   <title>zcore</title>
-
   <meta charset="UTF-8">
-
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
   <style>
     @font-face {
       font-family: 'Cozette';
       src: url('extra/site/fonts/CozetteVector.ttf') format('truetype');
     }
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    animation: scanmove 8s linear infinite;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(0, 255, 159, 0.03),
-      rgba(0, 255, 159, 0.03) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    opacity: 0.4;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      animation: scanmove 8s linear infinite;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 159, 0.03),
+        rgba(0, 255, 159, 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      opacity: 0.4;
+    }
     @keyframes scanmove {
-  from { transform: translateY(0); }
-  to { transform: translateY(10px); }
-}
+      from { transform: translateY(0); }
+      to { transform: translateY(10px); }
+    }
     body {
       background-color: #0a0a0a;
       color: #00ff9f;
       font-family: 'Cozette', monospace;
       font-size: 18px;
       margin: 0;
+      padding-bottom: 30px;
     }
-
     .container {
       max-width: 700px;
       margin: 80px auto;
       padding: 30px;
       border: 2px solid #00ff9f;
     }
-
     h1 {
       text-align: center;
       letter-spacing: 2px;
     }
-    
-  @keyframes typing {
-  from { width: 0; }
-  to { width: 41ch; }
-}
-
-.subtitle {
-  display: block;
-  width: 41ch; 
-  margin: 0 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1px solid #00ff9f;
-  animation: typing 2s steps(40, end) forwards;
-}
-
-.fade-out {
-  color: rgb(0, 255, 159);
-  border-color: rgb(0, 255, 159);
-  text-shadow: none;
-  transition: color 0.4s ease, border-color 0.4s ease;
-}
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 41ch; }
+    }
+    .subtitle {
+      display: block;
+      width: 41ch;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 1px solid #00ff9f;
+      animation: typing 2s steps(40, end) forwards;
+    }
+    .fade-out {
+      color: rgb(0, 255, 159);
+      border-color: rgb(0, 255, 159);
+      text-shadow: none;
+      transition: color 0.4s ease, border-color 0.4s ease;
+    }
     .download-btn {
       display: block;
       width: fit-content;
@@ -84,7 +77,6 @@
       color: #00ff9f;
       text-decoration: none;
     }
-
     .xtra-dbtn {
       display: block;
       width: fit-content;
@@ -95,168 +87,243 @@
       text-decoration: none;
       animation: glow 3s infinite;
     }
-
     .basic-link {
       color: #44ffaf;
       text-decoration: underline;
     }
-
-@keyframes hoverPulse {
-  0% { box-shadow: 0 0 0 rgba(0,255,159,0); }
-  50% { box-shadow: 0 0 12px rgba(0,255,159,0.6); }
-  100% { box-shadow: 0 0 10px rgba(0,255,159,0.4); }
-}
-
+    @keyframes hoverPulse {
+      0% { box-shadow: 0 0 0 rgba(0,255,159,0); }
+      50% { box-shadow: 0 0 12px rgba(0,255,159,0.6); }
+      100% { box-shadow: 0 0 10px rgba(0,255,159,0.4); }
+    }
     .download-btn:hover {
-  background: #00ff9f;
-  color: #0a0a0a;
-  transform: translateY(-1px);
-  box-shadow: 0 0 10px #00ff9f66;
-  animation: hoverPulse 0.6s ease;
-  transition: 0.25s ease;
-}
-    
+      background: #00ff9f;
+      color: #0a0a0a;
+      transform: translateY(-1px);
+      box-shadow: 0 0 10px #00ff9f66;
+      animation: hoverPulse 0.6s ease;
+      transition: 0.25s ease;
+    }
     @keyframes glow {
       0% { box-shadow: 0 0 5px #00ff9f33; }
       50% { box-shadow: 0 0 12px #00ff9f66; }
       100% { box-shadow: 0 0 5px #00ff9f33; }
     }
-  
-        .xtra-dbtn:hover {
-  animation: hoverPulse 0.6s ease;
-  background: #00ff9f;
-  color: #0a0a0a;
-  transform: translateY(-1px);
-  box-shadow: 0 0 10px #00ff9f66;
-  transition: 0.25s ease;
-}
-
-    #content {
-      margin-top: 40px;
+    .xtra-dbtn:hover {
+      animation: hoverPulse 0.6s ease;
+      background: #00ff9f;
+      color: #0a0a0a;
+      transform: translateY(-1px);
+      box-shadow: 0 0 10px #00ff9f66;
+      transition: 0.25s ease;
     }
-
-    #content h1, 
-    #content h2, 
-    #content h3 {
+    #content { margin-top: 40px; }
+    #content h1, #content h2, #content h3 {
       border-bottom: 1px solid #00ff9f;
       padding-bottom: 5px;
       margin-top: 30px;
     }
-
-    #content p {
-      line-height: 1.6;
-    }
-
+    #content p { line-height: 1.6; }
     #content pre {
       background: #111;
       padding: 15px;
       overflow-x: auto;
       border: 1px solid #00ff9f;
     }
-
-    #content code {
-      font-family: 'Cozette', monospace;
-    }
-
-    #content a {
-      color: #00ff9f;
-    }
-
+    #content code { font-family: 'Cozette', monospace; }
+    #content a { color: #00ff9f; }
     .footer {
       margin-top: 30px;
       font-size: 14px;
       opacity: 0.5;
       text-align: center;
     }
+    #cmd-input::placeholder { color: #00ff9f; opacity: 0.3; }
   </style>
 </head>
 
 <body>
   <div class="container">
     <h1>zcore</h1>
-
-    <div class="subtitle">
-      tiny syscall wrapper for modular projects
-    </div>
-
-    <a href="zcore.tar.gz" download class="xtra-dbtn">
-      download zcore.tar.gz
-    </a>
-
-    <a href="https://github.com/chromalence/zcore/tree/main" class="download-btn">
-      view zcore
-    </a>
-
+    <div class="subtitle">tiny syscall wrapper for modular projects</div>
+    <a href="zcore.tar.gz" download class="xtra-dbtn">download zcore.tar.gz</a>
+    <a href="https://github.com/chromalence/zcore/tree/main" class="download-btn">view zcore</a>
     <div id="content">loading README...</div>
-
-    <a href="https://github.com/chromalence/" class="download-btn">
-      support me!
-    </a>
-
+    <a href="https://github.com/chromalence/" class="download-btn">support me!</a>
     <div class="footer">
-      chromalence | v1.2 • linux • x86_64 | GPLv3, see <a href="https://github.com/chromalence/zcore/blob/main/LICENSE" class="basic-link">
-        LICENSE
-      </a>
+      chromalence | v1.2 • linux • x86_64 | GPLv3, see
+      <a href="https://github.com/chromalence/zcore/blob/main/LICENSE" class="basic-link">LICENSE</a>
     </div>
   </div>
-  
+
   <audio id="hover-sound" src="./extra/site/hover.ogg" preload="auto"></audio>
   <audio id="click-sound" src="./extra/site/select.ogg" preload="auto"></audio>
 
+  <div id="terminal-bar" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0a0a0a;
+    border-top: 2px solid #00ff9f;
+    box-sizing: border-box;
+    z-index: 100;
+  ">
+    <div id="terminal-toggle" style="
+      padding: 4px 20px;
+      cursor: pointer;
+      color: #00ff9f;
+      opacity: 0.5;
+      font-family: 'Cozette', monospace;
+      font-size: 13px;
+      user-select: none;
+    ">[+] terminal</div>
+
+    <div id="terminal-body" style="
+      display: none;
+      padding: 10px 20px;
+      align-items: center;
+      gap: 8px;
+    ">
+      <span style="color: #00ff9f; opacity: 0.6;">zcore:term &gt;</span>
+      <div style="position: relative; flex: 1; display: flex; align-items: center;">
+        <input
+          id="cmd-input"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+          style="
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #00ff9f;
+            font-family: 'Cozette', monospace;
+            font-size: 18px;
+            width: 100%;
+            caret-color: #00ff9f;
+          "
+        />
+        <span id="cmd-ghost" style="
+          position: absolute;
+          left: 0;
+          color: #00ff9f;
+          opacity: 0.25;
+          font-family: 'Cozette', monospace;
+          font-size: 18px;
+          pointer-events: none;
+          white-space: nowrap;
+        ">help</span>
+      </div>
+      <span id="cmd-feedback" style="color: #00ff9f; opacity: 0.5; font-size: 14px; min-width: 200px; text-align: right;"></span>
+    </div>
+  </div>
+
 <script>
-fetch("README.md")
-  .then(res => res.text())
-  .then(md => {
-    document.getElementById("content").innerHTML = marked.parse(md);
-  })
-  .catch(() => {
-    document.getElementById("content").innerText =
-      "failed to load README.md (are you running a local server?)";
-  });
+const hoverSound = document.getElementById("hover-sound");
+const clickSound = document.getElementById("click-sound");
+let unlocked = false;
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  const hoverSound = document.getElementById("hover-sound");
-  const clickSound = document.getElementById("click-sound");
-
-  let unlocked = false;
-
-  function unlockAudio() {
-    if (unlocked) return;
-    unlocked = true;
-
-    hoverSound.currentTime = 0;
-    clickSound.currentTime = 0;
-  }
-
-  document.addEventListener("click", unlockAudio, { once: true });
-  document.addEventListener("mousemove", unlockAudio, { once: true });
-  document.addEventListener("keydown", unlockAudio, { once: true });
+function unlockAudio() {
+  if (unlocked) return;
+  unlocked = true;
+  hoverSound.currentTime = 0;
+  clickSound.currentTime = 0;
+}
 
 function playSound(audio) {
   if (!audio) return;
-
-  const clone = audio.cloneNode();
-  clone.play().catch(() => {});
+  audio.pause();
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
 }
 
-  const buttons = document.querySelectorAll(".download-btn, .xtra-dbtn");
+document.addEventListener("click", unlockAudio, { once: true });
+document.addEventListener("mousemove", unlockAudio, { once: true });
+document.addEventListener("keydown", unlockAudio, { once: true });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".download-btn, .xtra-dbtn");
   buttons.forEach(btn => {
     btn.addEventListener("mouseenter", () => {
       playSound(hoverSound);
       btn.classList.add("fade-out");
     });
-
     btn.addEventListener("click", () => {
       playSound(clickSound);
-
       btn.classList.add("fade-out");
-
-
     });
   });
+});
 
+fetch("README.md")
+  .then(res => res.text())
+  .then(md => { document.getElementById("content").innerHTML = marked.parse(md); })
+  .catch(() => { document.getElementById("content").innerText = "failed to load README.md (are you running a local server?)"; });
+
+const cmdInput = document.getElementById('cmd-input');
+const cmdFeedback = document.getElementById('cmd-feedback');
+const ghost = document.getElementById('cmd-ghost');
+const toggle = document.getElementById('terminal-toggle');
+const termBody = document.getElementById('terminal-body');
+let open = false;
+
+const commands = {
+  'download': () => document.querySelector('.xtra-dbtn').click(),
+  'view':     () => window.open('https://github.com/chromalence/zcore/tree/main', '_blank'),
+  'support':  () => document.querySelectorAll('.download-btn')[1].click(),
+  'help':     () => { cmdFeedback.textContent = 'commands: download | view | support | clear | exit'; },
+  'clear':    () => { cmdInput.value = ''; cmdFeedback.textContent = ''; ghost.textContent = 'help'; },
+'q': () => toggle.click(),
+'exit': () => toggle.click(),
+};
+const cmdNames = Object.keys(commands);
+
+toggle.addEventListener('click', () => {
+  open = !open;
+  termBody.style.display = open ? 'flex' : 'none';
+  toggle.textContent = open ? '[-] terminal' : '[+] terminal';
+  document.body.style.paddingBottom = open ? '55px' : '30px';
+  if (open) cmdInput.focus();
+});
+
+cmdInput.addEventListener('input', () => {
+  const val = cmdInput.value;
+  if (!val) { ghost.textContent = 'help'; return; }
+  const match = cmdNames.find(c => c.startsWith(val));
+  ghost.textContent = match || '';
+});
+
+cmdInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab' && ghost.textContent) {
+    e.preventDefault();
+    cmdInput.value = ghost.textContent;
+    ghost.textContent = '';
+    return;
+  }
+  if (e.key !== 'Enter') return;
+  unlockAudio();
+  const raw = cmdInput.value.trim().toLowerCase();
+  const fn = commands[raw];
+  if (fn) {
+    playSound(clickSound);
+    cmdFeedback.textContent = `> ${raw}: ok`;
+    fn();
+  } else if (raw !== '') {
+    playSound(hoverSound);
+    cmdFeedback.textContent = `> unknown command: ${raw}`;
+  }
+  cmdInput.value = '';
+  ghost.textContent = 'help';
+  setTimeout(() => { cmdFeedback.textContent = ''; }, 2500);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && document.activeElement !== cmdInput) {
+    e.preventDefault();
+    if (!open) toggle.click();
+    else cmdInput.focus();
+  }
+  if (e.key === 'Escape' && open) toggle.click();
 });
 </script>
 </body>
