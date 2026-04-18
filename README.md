@@ -12,13 +12,8 @@ ________  ________  ________  ________  _______
 ```
 what is zcore? zcore is a tiny & simple syscall wrapper 
 that is designed to be used in tiny and modular projects.
-## v1.2: WHAT WILL CHANGE???
+## v1.2: WHAT'S NEW???
 loads new syscalls. pretty much it, tbt update and minor fixes
-ive more than doubled the amount and only dropping when i hit 30+
-## v1.1: WHAT HAS CHANGED???
-basically overhauled every single header, dont worry the names are the same your code 
-should keep working its now much safer using PROPER asm volatile stuff in C
-new headers coming soon :3
 ### HOW DO I UPDATE???
 to update, re-git-clone it and run the install script again, see INSTALL ;)
 ## STAT FLEXES ( using tbt )
