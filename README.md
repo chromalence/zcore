@@ -71,6 +71,11 @@ void _start() { // no int main(); .
     zexit(0); // and this is just, _exit, without the BLOAT!!!!!
 }
 ```
+## WEBSITE
+[the site](https://chromalence.github.io/zcore)
+i didnt write it i got ai to write it for me i know sad
+but i dont wanna learn html js and css :sob: but hey
+i wrote all the c and assembly :D
 ## ZCORE VERSIONS
 i dont archive them like in chroctl every update previous headers are UNTOUCHED 
 unless it needed a fix. no syntax changing ok. its modular, not like stdio where 
